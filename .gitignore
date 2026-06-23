@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.db
+*.pt
+model/bip39_wordlist.txt
+venv/
+.streamlit/

@@ -1,0 +1,16 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile.streamlit"
+
+[deploy]
+startCommand = "streamlit run web/app.py --server.address=0.0.0.0 --server.port=8501 --server.headless=true"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[[services]]
+name = "hash-decoder-panel"
+
+[services.variables]
+DB_PATH    = "data/hashes.db"
+MODEL_PATH = "model/checkpoints/best_model.pt"
+DEVICE     = "cpu"
